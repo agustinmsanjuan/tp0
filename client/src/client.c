@@ -1,6 +1,4 @@
 #include "client.h"
-//#include <readline/readline.h>
-#include <commons/string.h>
 
 int main(void)
 {
@@ -47,7 +45,7 @@ int main(void)
 
 	/* ---------------- LEER DE CONSOLA ---------------- */
 
-	//leer_consola(logger);
+	leer_consola(logger);
 
 	/*---------------------------------------------------PARTE 3-------------------------------------------------------------*/
 
@@ -62,11 +60,10 @@ int main(void)
 	//paquete(conexion);
 
 	//terminar_programa(conexion, logger, config);
-
-	/*---------------------------------------------------PARTE 5-------------------------------------------------------------*/
-	// Proximamente
 	log_destroy(logger);
 	config_destroy(config);
+	/*---------------------------------------------------PARTE 5-------------------------------------------------------------*/
+	// Proximamente
 
 }
 
@@ -75,6 +72,11 @@ t_log* iniciar_logger(void)
 	t_log* nuevo_logger;
 
 	nuevo_logger = log_create("tp0.log", "client", 1, LOG_LEVEL_INFO);
+
+	if(nuevo_logger == NULL) {
+		puts("¡No se pudo crear el logger!");
+		exit(1);
+	}
 
 	return nuevo_logger;
 }
@@ -85,6 +87,11 @@ t_config* iniciar_config(void)
 
 	nuevo_config = config_create("/home/utnso/Documents/tp0/client/cliente.config");
 
+	if (nuevo_config == NULL) {
+    	puts("¡No se pudo crear el config!");
+		exit(1);
+}
+
 	return nuevo_config;
 }
 
@@ -93,12 +100,17 @@ void leer_consola(t_log* logger)
 	char* leido;
 
 	// La primera te la dejo de yapa
-//	leido = readline("> ");
+	leido = readline("> ");
 
 	// El resto, las vamos leyendo y logueando hasta recibir un string vacío
-
+	while(strcmp(leido, "") != 0) {
+		log_info(logger, leido);
+		free(leido);
+		leido = readline("> ");
+	}
 
 	// ¡No te olvides de liberar las lineas antes de regresar!
+	free(leido);
 
 }
 

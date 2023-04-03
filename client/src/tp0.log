@@ -1,2 +1,9 @@
 [INFO] 14:48:39:659 client/(33050:33050): Hola! Soy un log
 [INFO] 14:48:39:661 client/(33050:33050): El valor de config es: valor
+[INFO] 15:42:18:093 client/(34206:34206): Hola! Soy un log
+[INFO] 15:42:18:095 client/(34206:34206): El valor de config es: valor
+[INFO] 15:42:28:914 client/(34206:34206): qonda
+[INFO] 15:42:34:091 client/(34206:34206): uachin
+[INFO] 15:42:57:327 client/(34344:34344): Hola! Soy un log
+[INFO] 15:42:57:329 client/(34344:34344): El valor de config es: valor
+[INFO] 15:43:08:004 client/(34344:34344): prueboSinFree
